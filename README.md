@@ -1,4 +1,4 @@
-# lk21dl-core
+# lk21dl
 
 <div align="center">
     <img src="https://img.shields.io/badge/Version-1.0.0-2563eb?style=for-the-badge&logo=typescript" alt="Version">
@@ -22,8 +22,8 @@
     <a href="https://github.com/Dimzxzzx07">
         <img src="https://img.shields.io/badge/GitHub-Dimzxzzx07-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
     </a>
-    <a href="https://www.npmjs.com/package/lk21dl-core">
-        <img src="https://img.shields.io/badge/NPM-lk21dl--core-CB3837?style=for-the-badge&logo=npm" alt="NPM">
+    <a href="https://www.npmjs.com/package/lk21dl">
+        <img src="https://img.shields.io/badge/NPM-lk21dl-CB3837?style=for-the-badge&logo=npm" alt="NPM">
     </a>
 </div>
 
@@ -31,7 +31,7 @@
 
 ## Table of Contents
 
-- [What is LK21DL-Core?](#what-is-lk21dl-core)
+- [What is lk21dl?](#what-is-lk21dl)
 - [Features](#features)
 - [Installation](#installation)
 - [Enabling HD (Chromium setup)](#enabling-hd-chromium-setup)
@@ -49,9 +49,9 @@
 
 ---
 
-## What is LK21DL-Core?
+## What is lk21dl?
 
-**lk21dl-core** is a TypeScript library and CLI that downloads movies from LK21 streaming mirrors by walking the full obfuscation chain — page → iframe → embed host → CDN — and bypassing Cloudflare along the way. It resolves the real video source (direct MP4 or HLS/M3U8), streams it to disk, and merges HLS segments into a single `.mp4` with `ffmpeg`.
+**lk21dl** is a TypeScript library and CLI that downloads movies from LK21 streaming mirrors by walking the full obfuscation chain — page → iframe → embed host → CDN — and bypassing Cloudflare along the way. It resolves the real video source (direct MP4 or HLS/M3U8), streams it to disk, and merges HLS segments into a single `.mp4` with `ffmpeg`.
 
 It supports two quality paths:
 
@@ -77,9 +77,9 @@ It supports two quality paths:
 ## Installation
 
 ```bash
-npm install -g lk21dl-core
+npm install -g lk21dl
 # or as a project dependency
-npm install lk21dl-core
+npm install lk21dl
 ```
 
 On first install you'll be asked whether to set up HD support (see [Enabling HD](#enabling-hd-chromium-setup) below). If you only need SD, answer no — nothing extra gets installed.
@@ -116,8 +116,8 @@ Install Chromium now for HD support? [y/N]:
 
 **2. Non-interactive / CI** — set `LK21DL_HD` before installing:
 ```bash
-LK21DL_HD=1 npm install lk21dl-core   # enable HD, install Chromium
-LK21DL_HD=0 npm install lk21dl-core   # SD-only (also the default if unset in non-TTY environments)
+LK21DL_HD=1 npm install lk21dl   # enable HD, install Chromium
+LK21DL_HD=0 npm install lk21dl   # SD-only (also the default if unset in non-TTY environments)
 ```
 
 **3. Re-run anytime:**
@@ -167,7 +167,7 @@ If a download is interrupted (network blip, Ctrl+C, crash), just re-run the exac
 ## Library Usage
 
 ```javascript
-import lk21dl from 'lk21dl-core';
+import lk21dl from 'lk21dl';
 
 const outputPath = await lk21dl('https://tv.lk21official.us/the-family-plan-2023');
 console.log('Saved to', outputPath);
@@ -176,7 +176,7 @@ console.log('Saved to', outputPath);
 With quality and progress:
 
 ```javascript
-import lk21dl from 'lk21dl-core';
+import lk21dl from 'lk21dl';
 
 const outputPath = await lk21dl(
   'https://tv.lk21official.us/the-family-plan-2023',
@@ -197,7 +197,7 @@ const outputPath = await lk21dl(
 Lower-level access via the `Core` class, if you need the resolved stream yourself instead of a file on disk:
 
 ```typescript
-import Core from 'lk21dl-core/dist/src/core.js';
+import Core from 'lk21dl/dist/src/core.js';
 
 const core = new Core();
 const { title, stream, downloadId } = await core.download(url, { quality: 'sd' });
@@ -306,15 +306,15 @@ If the CAST player isn't found, or Chromium isn't configured, or the HD extracti
 Mostly — the parser has fallback patterns for multiple embed hosts, but mirror structures do change over time.
 
 **Is this legal to use?**
-lk21dl-core is a technical tool for retrieving streams you're otherwise able to watch in a browser. You are responsible for complying with copyright law in your jurisdiction — see [Terms of Service](#terms-of-service).
+lk21dl is a technical tool for retrieving streams you're otherwise able to watch in a browser. You are responsible for complying with copyright law in your jurisdiction — see [Terms of Service](#terms-of-service).
 
 ---
 
 ## Contributing
 
 ```bash
-git clone https://github.com/Dimzxzzx07/lk21dl-core.git
-cd lk21dl-core
+git clone https://github.com/fann22/lk21dl.git
+cd lk21dl
 npm install
 npm run build
 npm test
@@ -331,7 +331,7 @@ Please include the LK21 URL you tested against and your Node.js/OS version when 
 
 ## Terms of Service
 
-By downloading, installing, or using lk21dl-core (the "Software"), you agree to be bound by these terms and the MIT License below.
+By downloading, installing, or using lk21dl (the "Software"), you agree to be bound by these terms and the MIT License below.
 
 **Intended use**: personal offline viewing of content you have rights to, educational research on web scraping/HLS, and testing your own streaming implementations.
 
@@ -377,7 +377,7 @@ SOFTWARE.
     <a href="https://github.com/Dimzxzzx07">
         <img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github" alt="GitHub">
     </a>
-    <a href="https://www.npmjs.com/package/lk21dl-core">
+    <a href="https://www.npmjs.com/package/lk21dl">
         <img src="https://img.shields.io/badge/NPM-Package-CB3837?style=for-the-badge&logo=npm" alt="NPM">
     </a>
     <br>

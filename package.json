@@ -1,37 +1,59 @@
 {
-  "name": "lk21dl-core",
+  "name": "lk21dl",
   "version": "1.0.0",
-  "type": "module",
   "description": "Advanced LK21 movie downloader with cloudflare bypass and HLS support",
+  "keywords": [
+    "lk21",
+    "downloader",
+    "movie-downloader",
+    "video-downloader",
+    "scraper",
+    "cloudflare-bypass",
+    "anti-bot",
+    "hls",
+    "hls-downloader",
+    "m3u8",
+    "ffmpeg",
+    "playwright",
+    "headless-browser",
+    "resume-download",
+    "resumable-download",
+    "streaming",
+    "cli",
+    "typescript"
+  ],
+  "homepage": "https://github.com/fann22/lk21dl#readme",
+  "bugs": {
+    "url": "https://github.com/fann22/lk21dl/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fann22/lk21dl.git"
+  },
+  "license": "MIT",
+  "author": "Fann22",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "lk21dl": "dist/bin/cli.js"
+  },
+  "directories": {
+    "test": "test"
+  },
   "files": [
     "dist",
     "scripts",
     "README.md",
     "LICENSE"
   ],
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "scripts": {
-    "build": "tsc",
+    "build": "node node_modules/typescript/bin/tsc",
     "test": "node dist/test/test.js",
     "start": "node dist/index.js",
     "prepublishOnly": "npm run build",
     "postinstall": "node scripts/setup-hd.js",
     "setup-hd": "node scripts/setup-hd.js"
-  },
-  "bin": {
-    "lk21dl": "./dist/bin/cli.js"
-  },
-  "bugs": {
-    "url": "https://github.com/Dimzxzzx07/lk21dl-core/issues",
-    "email": "dimzxae@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Dimzxzzx07/lk21dl-core.git"
   },
   "dependencies": {
     "axios": "^1.6.2",
@@ -44,16 +66,7 @@
     "@types/node": "^20.10.4",
     "typescript": "^5.3.3"
   },
-  "keywords": [
-    "lk21",
-    "downloader",
-    "movie",
-    "scraper",
-    "cloudflare-bypass",
-    "hls-downloader",
-    "m3u8",
-    "resume-download"
-  ],
-  "author": "Dimzxzzx07",
-  "license": "MIT"
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
