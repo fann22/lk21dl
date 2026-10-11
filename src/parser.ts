@@ -1,6 +1,40 @@
 import * as cheerio from 'cheerio';
 
 export default class Parser {
+  extractTitle(html: string): string {
+    const $ = cheerio.load(html);
+    let title = $('h1').first().text().trim();
+
+    if (!title) {
+      title = $('meta[property="og:title"]').attr('content') || '';
+      title = title.replace(/\s*\|.*$/, '').trim();
+    }
+
+    if (!title) {
+      title = 'lk21';
+    }
+
+    return title
+      .replace(/[\\/:*?"<>|]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  extractPlayerUrlByServer(html: string, server: string): string | null {
+    const $ = cheerio.load(html);
+    let foundUrl: string | null = null;
+
+    $(`a[data-server="${server}"]`).each((_index: number, element: any) => {
+      const dataUrl = $(element).attr('data-url') || $(element).attr('href');
+      if (dataUrl) {
+        foundUrl = dataUrl;
+        return false;
+      }
+    });
+
+    return foundUrl;
+  }
+
   extractIframeUrl(html: string): string {
     const $ = cheerio.load(html);
     let iframeUrl = '';

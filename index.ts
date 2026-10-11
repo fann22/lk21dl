@@ -2,25 +2,26 @@ import { createWriteStream, existsSync, mkdirSync } from 'fs';
 import { pipeline } from 'stream';
 import { promisify } from 'util';
 import path from 'path';
-import Core from './src/core.js';
+import Core, { DownloadOptions } from './src/core.js';
 
 const pipelineAsync = promisify(pipeline);
 
-export default async function lk21dl(url: string, outputPath: string = './downloads/test.mp4'): Promise<string> {
+export default async function lk21dl(url: string, outputPath?: string, options: DownloadOptions = {}): Promise<string> {
   const core = new Core();
   try {
-    // Pastikan folder untuk menampung output download sudah ada
-    const dir = path.dirname(outputPath);
+    console.log('Starting download...');
+    const { title, stream, downloadId } = await core.download(url, options);
+
+    const resolvedOutputPath = outputPath || `./${title.replace(/[\\/:*?"<>|]/g, '')}.mp4`;
+    const dir = path.dirname(resolvedOutputPath);
     if (!existsSync(dir)) {
       mkdirSync(dir, { recursive: true });
     }
 
-    console.log('Starting download...');
-    const videoStream = await core.download(url);
-    const writeStream = createWriteStream(outputPath);
-    
-    await pipelineAsync(videoStream, writeStream);
-    return outputPath;
+    const writeStream = createWriteStream(resolvedOutputPath);
+    await pipelineAsync(stream, writeStream);
+    core.cleanupDownload(downloadId);
+    return resolvedOutputPath;
   } catch (error) {
     throw new Error(`Download failed: ${(error as Error).message}`);
   }
