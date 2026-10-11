@@ -16,11 +16,8 @@
 </div>
 
 <div align="center">
-    <a href="https://t.me/Dimzxzzx07">
-        <img src="https://img.shields.io/badge/Telegram-Dimzxzzx07-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
-    </a>
-    <a href="https://github.com/Dimzxzzx07">
-        <img src="https://img.shields.io/badge/GitHub-Dimzxzzx07-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+    <a href="https://github.com/fann22">
+        <img src="https://img.shields.io/badge/GitHub-fann22-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
     </a>
     <a href="https://www.npmjs.com/package/lk21dl">
         <img src="https://img.shields.io/badge/NPM-lk21dl-CB3837?style=for-the-badge&logo=npm" alt="NPM">
@@ -28,6 +25,8 @@
 </div>
 
 ---
+
+> **This is a fork.** The original project is [Dimzxzzx07/lk21dl-core](https://github.com/Dimzxzzx07/lk21dl-core) (MIT licensed). The original author appears inactive; this fork (renamed `lk21dl`) fixes the HTML-instead-of-video bug, adds HD/quality selection, progress reporting, and resumable downloads. See [License](#license) for the original and fork copyright notices.
 
 ## Table of Contents
 
@@ -343,7 +342,10 @@ THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. THE AUTHOR BEARS 
 
 ## License
 
-MIT License — Copyright (c) 2026 Dimzxzzx07
+MIT License
+
+Copyright (c) 2026 Dimzxzzx07 (original author, [Dimzxzzx07/lk21dl-core](https://github.com/Dimzxzzx07/lk21dl-core))
+Copyright (c) 2026 fann22 (this fork)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -368,13 +370,12 @@ SOFTWARE.
 <div align="center">
     <img src="https://img.shields.io/badge/Built%20With-❤️-FF6B35?style=for-the-badge" alt="Built With Love">
     <br>
-    <strong>Powered By Dimzxzzx07</strong>
+    <strong>Maintained by fann22</strong>
+    <br>
+    <small>Fork of <a href="https://github.com/Dimzxzzx07/lk21dl-core">Dimzxzzx07/lk21dl-core</a></small>
     <br>
     <br>
-    <a href="https://t.me/Dimzxzzx07">
-        <img src="https://img.shields.io/badge/Telegram-Contact-26A5E4?style=for-the-badge&logo=telegram" alt="Telegram">
-    </a>
-    <a href="https://github.com/Dimzxzzx07">
+    <a href="https://github.com/fann22">
         <img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github" alt="GitHub">
     </a>
     <a href="https://www.npmjs.com/package/lk21dl">
@@ -382,7 +383,5 @@ SOFTWARE.
     </a>
     <br>
     <br>
-    <small>Copyright © 2026 Dimzxzzx07. All rights reserved.</small>
-    <br>
-    <small>This project is licensed under MIT License</small>
+    <small>Copyright © 2026 Dimzxzzx07 (original) &amp; fann22 (fork). MIT License.</small>
 </div>
